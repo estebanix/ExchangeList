@@ -1,20 +1,20 @@
 import { Button } from "../Button";
+import { Link } from "react-router-dom";
 
 import styles from "./TicketBox.module.scss";
 
 interface TicketBoxProps {
-  title: string; // Adjust the type according to your actual data structure
+  title: string; 
 }
 
 export const TicketBox: React.FC<TicketBoxProps> = ({ title }) => {
   return (
-    <>
       <div className={styles.ticketBoxContainer}>
         <p>{title}</p>
-        <Button />
+        <Link to={`/detail/${title}`}>
+          <Button data={title} />
+        </Link>
       </div>
-    </>
   );
 };
 
-export default TicketBox;
