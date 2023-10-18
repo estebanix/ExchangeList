@@ -1,11 +1,10 @@
 .ticketBoxContainer {
-    width: 150px;
-    height: 150px;
+    width: 60%;
+    height: 30px;
     border: 1px solid red;
     border-radius: 20px;
     display: flex;
-    gap: 15px;
-    flex-direction: column;
+    gap: 150px;
     align-items: center;
     justify-content: center;
 }
