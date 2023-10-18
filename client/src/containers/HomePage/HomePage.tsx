@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { TicketBox } from "../../components/TicketBox";
+import { GridTable } from "../../components/GridTable";
+
 import styles from "./HomePage.module.scss";
 
 interface RenderProps {
@@ -31,9 +34,11 @@ export const HomePage: React.FC = () => {
 
   return (
     <div className={styles.homePageContainer}>
-      {state.map((dat, index) => (
-        <p key={index}>{dat.shortName}</p>
-      ))}
+      <GridTable>
+        {state.map((dat, index) => (
+          <TicketBox key={index} title={dat.shortName} />
+        ))}
+      </GridTable>
     </div>
   );
 };
