@@ -1,9 +1,12 @@
+import { HomePage } from "../containers/HomePage/HomePage";
+import { Routes, Route } from "react-router-dom";
+
 function App() {
   return (
-    <>
-      hello world
-    </>
-  )
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;
