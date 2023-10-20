@@ -1,16 +1,38 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, ReactNode } from "react";
 
-export interface ContextType {
-  fetchData: any[];
-  setFetchData: (data: any) => void;
+type CurrencyData = {
+  shortName: string;
+  validFrom: string;
+  name: string;
+  country: string;
+  move: number;
+  amount: number;
+  valBuy: number;
+  valSell: number;
+  valMid: number;
+  currBuy: number;
+  currSell: number;
+  currMid: number;
+  version: number;
+  cnbMid: number;
+  ecbMid: number;
+};
+
+interface ContextProviderProps {
+  children: ReactNode;
+}
+
+interface ContextType {
+  fetchData: CurrencyData[]; 
+  setFetchData: (data: CurrencyData[]) => void;
   date: string
-  setDate: (data: any) => void;
+  setDate: (data: string) => void;
 }
 
 export const Context = createContext<ContextType>({} as ContextType);
 
-const ContextProvider = (props: any) => {
-  const [fetchData, setFetchData] = useState([]);
+const ContextProvider: React.FC <ContextProviderProps> = ({children}) => {
+  const [fetchData, setFetchData] = useState<CurrencyData[]>([]);
   const [date, setDate] = useState("");
   useEffect(() => {
     const fetchData = async () => {
@@ -43,7 +65,7 @@ const ContextProvider = (props: any) => {
         setDate
       }}
     >
-      {props.children}
+      {children}
     </Context.Provider>
   );
 };

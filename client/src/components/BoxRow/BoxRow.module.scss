@@ -1,5 +1,12 @@
 .boxRowContainer {
     display: flex;
-    margin-bottom: 40px;
+    flex-direction: column;
+    margin-bottom: 25px;
+    text-align: center;
+    gap: 15px;
+}
+
+.boxRowContainerChildren {
+    display: flex;
     color: #33333370;
 }
