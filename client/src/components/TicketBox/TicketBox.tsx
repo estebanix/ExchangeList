@@ -19,7 +19,7 @@ export const TicketBox: React.FC<TicketBoxProps> = ({ data }) => {
       <p>{data.country}</p>
       <p>{data.name}</p>
       <p>{data.shortName}</p>
-      <Link to={`/detail/${data.shortName}`}>
+      <Link to={`/detail?curr=${data.shortName}`}>
         <Button />
       </Link>
     </div>

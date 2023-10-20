@@ -1,12 +1,17 @@
 import { ReactNode } from "react";
+import { Title } from "../Title";
 import styles from "./GridTable.module.scss";
 
 interface GridTableProps {
-    children : ReactNode;
+  title: string;
+  children: ReactNode;
 }
 
-export const GridTable: React.FC <GridTableProps> = ({children}) => {
-  return <div className={styles.gridTableContainer}>
-    {children}
-  </div>;
+export const GridTable: React.FC<GridTableProps> = ({ title, children }) => {
+  return (
+    <div className={styles.gridTableContainer}>
+      <Title titleData={title} />
+      {children}
+    </div>
+  );
 };
