@@ -1,22 +1,5 @@
 import { createContext, useState, useEffect, ReactNode } from "react";
-
-type CurrencyData = {
-  shortName: string;
-  validFrom: string;
-  name: string;
-  country: string;
-  move: number;
-  amount: number;
-  valBuy: number;
-  valSell: number;
-  valMid: number;
-  currBuy: number;
-  currSell: number;
-  currMid: number;
-  version: number;
-  cnbMid: number;
-  ecbMid: number;
-};
+import { CurrencyData } from "../types/currData";
 
 interface ContextProviderProps {
   children: ReactNode;

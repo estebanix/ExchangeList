@@ -23,26 +23,21 @@ export const DetailPage = () => {
     <div className={styles.detailPageContainer}>
       <GridTable title={post.country}>
         <BoxRow gapWidth={100}>
-          <BoxRow gapWidth={40}>
             <p>{post.move} <Caret move={post.move} /></p>
             <p>Amount: {post.amount}</p>
-          </BoxRow>
-          <BoxRow gapWidth={5}>
-            <p>{post.name}</p>
-            <p>({post.shortName})</p>
-          </BoxRow>
+            <p>{post.name} ({post.shortName})</p>
         </BoxRow>
-        <BoxRow gapWidth={20} title={"Valuation (Val)"}>
+        <BoxRow gapWidth={30} title={"Valuation"}>
           <p>Buy: {post.valBuy}</p>
           <p>Sell: {post.valSell}</p>
           <p>Midpoint: {post.valMid}</p>
         </BoxRow>
-        <BoxRow gapWidth={20} title={"Currency Exchange (Curr)"}>
+        <BoxRow gapWidth={30} title={"Currency Exchange"}>
           <p>Buy: {post.currBuy}</p>
           <p>Sell: {post.currSell}</p>
           <p>Midpoint: {post.currMid}</p>
         </BoxRow>
-        <BoxRow gapWidth={20} title={"Exchange Rates"}>
+        <BoxRow gapWidth={30} title={"Exchange Rates"}>
           <p>CNB Mid: {post.cnbMid}</p>
           <p>ECB Mid: {post.ecbMid}</p>
         </BoxRow>
