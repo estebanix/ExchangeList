@@ -3,12 +3,15 @@ import { createContext, useState, useEffect } from "react";
 export interface ContextType {
   fetchData: any[];
   setFetchData: (data: any) => void;
+  date: string
+  setDate: (data: any) => void;
 }
 
 export const Context = createContext<ContextType>({} as ContextType);
 
 const ContextProvider = (props: any) => {
   const [fetchData, setFetchData] = useState([]);
+  const [date, setDate] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,6 +25,7 @@ const ContextProvider = (props: any) => {
 
         const data = await response.json();
         setFetchData(data);
+        setDate(data[0].validFrom)
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -34,7 +38,9 @@ const ContextProvider = (props: any) => {
     <Context.Provider
       value={{
         fetchData,
-        setFetchData
+        setFetchData,
+        date,
+        setDate
       }}
     >
       {props.children}
