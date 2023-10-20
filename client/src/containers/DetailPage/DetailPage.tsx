@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { BoxRow } from "../../components/BoxRow";
 import { Context } from "../../context/Context";
+import { Caret } from "../../components/Caret";
 import { GridTable } from "../../components/GridTable";
 
 import styles from "./DetailPage.module.scss";
@@ -21,24 +22,30 @@ export const DetailPage = () => {
   return (
     <div className={styles.detailPageContainer}>
       <GridTable title={post.country}>
-        <BoxRow gapWidth={20}>
-        <p>{post.name}</p> 
-        <p>{post.shortName}</p>
-        <p>{post.move}</p>
+        <BoxRow gapWidth={100}>
+          <BoxRow gapWidth={40}>
+            <p>{post.move} <Caret move={post.move} /></p>
+            <p>Amount: {post.amount}</p>
+          </BoxRow>
+          <BoxRow gapWidth={5}>
+            <p>{post.name}</p>
+            <p>({post.shortName})</p>
+          </BoxRow>
         </BoxRow>
-        <p>{post.amount}</p>
-        <BoxRow gapWidth={20} title={"Val"}>
-        <p>{post.valBuy}</p>
-        <p>{post.valSell}</p>
-        <p>{post.valMid}</p>
+        <BoxRow gapWidth={20} title={"Valuation (Val)"}>
+          <p>Buy: {post.valBuy}</p>
+          <p>Sell: {post.valSell}</p>
+          <p>Midpoint: {post.valMid}</p>
         </BoxRow>
-        <BoxRow gapWidth={20}>
-        <p>{post.currBuy}</p>
-        <p>{post.currSell}</p>
-        <p>{post.currMid}</p>
+        <BoxRow gapWidth={20} title={"Currency Exchange (Curr)"}>
+          <p>Buy: {post.currBuy}</p>
+          <p>Sell: {post.currSell}</p>
+          <p>Midpoint: {post.currMid}</p>
         </BoxRow>
-        <p>{post.cnbMid}</p>
-        <p>{post.ecbMid}</p>
+        <BoxRow gapWidth={20} title={"Exchange Rates"}>
+          <p>CNB Mid: {post.cnbMid}</p>
+          <p>ECB Mid: {post.ecbMid}</p>
+        </BoxRow>
       </GridTable>
     </div>
   );
